@@ -10,10 +10,10 @@ module.exports = (sequelize) => {
           primaryKey: true,
         },
         difficulty: {
-          type: DataTypes.INTEGER,
+          type: DataTypes.ENUM(["1","2","3","4","5"]),
         },
         duration: {
-          type: DataTypes.INTEGER,
+          type: DataTypes.TIME,
         },
         season: {
           type: DataTypes.STRING
