@@ -6,14 +6,14 @@ module.exports = (sequelize) => {
           type: DataTypes.STRING,
         },
         id: {
-          type: DataTypes.STRING,
+          type: DataTypes.INTEGER,
           primaryKey: true,
         },
         difficulty: {
           type: DataTypes.ENUM(["1","2","3","4","5"]),
         },
         duration: {
-          type: DataTypes.TIME,
+          type: DataTypes.INTEGER,
         },
         season: {
           type: DataTypes.STRING

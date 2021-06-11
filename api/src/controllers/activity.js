@@ -1,9 +1,18 @@
 const { Country, Activity } = require('../db')
 
-async function getAllCountry(req, res){
-    try {
+async function getActivity(req, res){
+    const { name, difficulty, duration, season, country } = req.body
+    const createActivity = await Activity.create({
+        name,
+        difficulty,
+        duration,
+        season,
+    });
+    createActivity.addCountries(country) 
+    res.send(createActivity)
+    
+}
 
-    } catch(error){
-        res.send(error);
-    }
+module.exports = {
+    getActivity
 }

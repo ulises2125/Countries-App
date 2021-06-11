@@ -3,7 +3,8 @@ const { getAllCountries, getCountryById} = require('../controllers/country');
 const router = Router();
 
 router.get('/', getAllCountries);
-router.get('/:idPais', getCountryById)
+router.get('/:idPais', getCountryById);
+
 
 
 module.exports = router;
