@@ -38,8 +38,7 @@ const { Country, Activity } = require('../db')
             where: { 
                 name: {
                     [Op.iLike]: `%${name}%` } 
-            },
-            attributes: {exclude: ["createdAt", "updatedAt"]}
+            }
         })
         return res.send(countryName);
     } 

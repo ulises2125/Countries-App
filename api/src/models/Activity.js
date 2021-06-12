@@ -8,6 +8,8 @@ module.exports = (sequelize) => {
         id: {
           type: DataTypes.INTEGER,
           primaryKey: true,
+          allowNull: false,
+          autoIncrement: true,
         },
         difficulty: {
           type: DataTypes.ENUM(["1","2","3","4","5"]),

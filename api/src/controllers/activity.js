@@ -1,4 +1,5 @@
 const { Country, Activity } = require('../db')
+const { Op } = require('sequelize');
 
 async function getActivity(req, res){
     const { name, difficulty, duration, season, country } = req.body
@@ -8,7 +9,14 @@ async function getActivity(req, res){
         duration,
         season,
     });
-    createActivity.addCountries(country) 
+    const dbCountry= await Country.findAll({
+        where: {
+            id: {
+                [Op.in]: Array.isArray(country) ? country : [country]
+            }
+        } 
+    });
+    await createActivity.setCountries(dbCountry);
     res.send(createActivity)
     
 }
