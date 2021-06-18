@@ -1,0 +1,8 @@
+export const GET_COUNTRIES = 'GET_COUNTRIES';
+export const GET_COUNTRY_DETAIL = 'GET_COUNTRY_DETAIL';
+export const GET_COUNTRY = 'GET_COUNTRY';
+export const GET_ACTIVITY = 'GET_ACTIVITY';
+export const ASC = "ASCENDENTE";
+export const DES = "DESCENDENTE";
+export const PASC = "CANT_POPULATION_ASCENDENTE"
+export const PDES = "CANT_POPULATION_DESCENDENTE"
