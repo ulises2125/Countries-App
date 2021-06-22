@@ -1,0 +1,29 @@
+.windowContainer {
+    display: flex;
+    justify-content: center;
+    background-color: #3383FF; 
+    background-size: cover;
+  }
+.container {
+    margin-top: 5%;
+    padding: 2em;
+    backdrop-filter: blur(10px);
+    border-radius: 3%;
+    width: 50%;
+    height: 50%;
+    border: black 1px solid;
+    color: white;
+}
+.link {
+    text-decoration: none;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border: black 1px solid;
+    border-radius: 5%;
+    color: black;
+}
+.linkcontainer {
+    display: flex;
+    align-self: flex-start;
+}

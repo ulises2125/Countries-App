@@ -1,0 +1,7 @@
+.fondo{
+    background-image: url("https://cdn.discordapp.com/attachments/698325896129413161/855200015815016458/27-273107_world-map-with-pins-hd-wallpaper-src-popular.png");
+    background-position-x: center;
+    background-position-y: center;
+    min-height: 100vh;
+    background-size: cover;
+}

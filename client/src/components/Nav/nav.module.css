@@ -1,0 +1,49 @@
+.total{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 0.3em;
+    padding: 0.2em;
+    color: white;
+    justify-content: space-evenly;
+    align-self: flex-start;
+}
+.link{
+    text-decoration: none;
+    color: white;
+    background-color:transparent;
+    border: 1px white solid;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+    border-radius: 5%;
+}
+.link:hover{
+    background-color: #fff;
+    border: 1px #3383FF solid;
+    color: #3383FF;
+}
+.filter{
+    display: flex;
+    
+}
+.filtersContainer{
+    display: flex;
+    margin-left: 3em;
+}
+
+.inputActivityContainer{
+    display: flex;
+    align-self: center;
+    margin-left: 3em;
+
+}
+.inputActivityContainer input{
+    margin-left: 0.5em;
+    outline: none;
+    border: 0;
+    border-radius: 25px;
+    padding: 3%;
+} 
+.button{
+    display:flex;
+    margin-left:3em;
+}

@@ -1,39 +1,37 @@
-import { getCountriesDetail } from '../../actions/actions';
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { useParams } from "react-router"
+import { getCountriesDetail } from "../../actions/actions"
+import Activity from '../Activity/activity';
 import { Link } from 'react-router-dom';
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import style from './DetailCountry.modules.css';
 
-function DetailCountry(props){
-    const dispatch = useDispatch();
-    const id = props.match.params.id.toUpperCase();
-    const countryDetail = useSelector(state => state.countryDetail)
-    useEffect(()=>{
+import style from './DetailCountry.module.css'
+
+const DetailCountry = () => {
+    const countriesDetail = useSelector(state => state.countriesDetail)
+    const dispatch = useDispatch()
+    const { id } = useParams()
+    useEffect(() => {
         dispatch(getCountriesDetail(id))
-    })
- 
-
-    return (        
-        <div className={style.back}>
-            <header>
-                <div>
-                    <Link className={style.hola} to="/countries">Home</Link>
-                </div>
-            </header>
-                <div className={style.detail}>           
-                    <div className="">{countryDetail?.name}</div>
-                    <div className="">Id: {countryDetail?.id}</div>
-                    <img src={countryDetail?.image} alt="No image"/>
-                    <div className="">Continent: {countryDetail?.continent}</div>
-                    <div className="">Capital: {countryDetail?.capital}</div>
-                    <div className="">Subregion: {countryDetail?.subregion}</div>
-                    <div className="">Area: {countryDetail?.area}</div>
-                    <div className="">Population: {countryDetail?.population}</div> 
-                    
-                </div>
+    },[])
+    return (
+        <div className={style.windowContainer}>
+            <div className={style.linkcontainer}>
+                <Link className={style.link} to='/countries'>Home</Link>
+            </div>
+            <div className={style.container}>
+                <h5>id = {countriesDetail.id}</h5>
+                <h1>name = {countriesDetail.name}</h1>
+                <img src = {countriesDetail.image} alt="no image"/>
+                <h3>continent = {countriesDetail.continent}</h3>
+                <h3>subregion = {countriesDetail.subregion}</h3>
+                <h3>capital = {countriesDetail.capital}</h3>
+                <h4>area = {countriesDetail.area} Km2</h4>
+                <h4>population = {countriesDetail.population}</h4>
+                <hr/>
+                <Activity countryName={countriesDetail.name} activities={countriesDetail.activities}/>
+            </div>
         </div>
-        
-    ) 
+    )
 }
-
 export default DetailCountry;

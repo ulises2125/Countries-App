@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_COUNTRIES, GET_COUNTRY_DETAIL, GET_COUNTRY, GET_ACTIVITY, ASC, DES, PASC, PDES} from '../actionsNames';
+import { GET_COUNTRIES, GET_COUNTRY_DETAIL, GET_COUNTRY, GET_ACTIVITY, ASC, DES, PASC, PDES, FILTER_BY_CONTINENT, FILTER_BY_ACTIVITY} from '../actionsNames';
 
 export function getAllCountries(){
     return async (dispatch) => {
@@ -10,7 +10,7 @@ export function getAllCountries(){
 
 export function getCountry(name){
     return async (dispatch) => {
-        const res = await axios.get(`http://localhost:3001/countries/${name}`)
+        const res = await axios.get(`http://localhost:3001/countries?name=${name}`)
         dispatch({ type: GET_COUNTRY, payload: res.data })
     }
 }
@@ -24,7 +24,7 @@ export function getCountriesDetail(id){
 
 export function getActivity(){
     return async (dispatch) => {
-        const res = await axios.get('http://localhost:3001/countries/activities')
+        const res = await axios.get('http://localhost:3001/activities')
         dispatch({ type: GET_ACTIVITY, payload: res.data })
     }
 }
@@ -48,4 +48,21 @@ export function sortCountryCANT_PD(){
     return {
         type: PDES
     }
+}
+export function filterByContinent(continent){
+    return {
+        type: FILTER_BY_CONTINENT,
+        payload: continent
+    }
+}
+export function filterByActivity(payload){
+    return {
+        type: FILTER_BY_ACTIVITY,
+        payload
+    }
+}
+export function postActivity(activity){
+    return async (dispatch) => {
+        await axios.post('http://localhost:3001/activity', activity)   
+        }
 }
