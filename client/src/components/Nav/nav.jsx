@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { filterByActivity, filterByContinent, getAllCountries, sortCountryASC, sortCountryCANT_PA, sortCountryCANT_PD, sortCountryDES } from '../../actions/actions';
+import { filterByActivity, filterByContinent, sortCountryASC, sortCountryCANT_PA, sortCountryCANT_PD, sortCountryDES } from '../../actions/actions';
 import { ASC, DES, PASC, PDES } from '../../actionsNames';
 import { useSelector, useDispatch } from 'react-redux';
 import style from './nav.module.css';
 
-export function Nav(){
+export function Nav({setVista}){
     const countries = useSelector(state => state.countries)
     const [activity, setActivity] = useState("")
     const dispatch = useDispatch()
 
     const handleChange = (event) =>{
         dispatch(filterByContinent(event.target.value))
-        
+        setVista({
+            countries: false,
+            continent: true
+        })
     }
 
     const handleChangeOrder = (event) =>{
@@ -48,14 +51,13 @@ export function Nav(){
             <div className = {style.filter}>
                 <select onChange={handleChange}>
                     <optgroup label="Select a continent">
-                        <option >Select one Continent</option>
+                        <option value="none">Select one Continent</option>
                         <option value="Americas">Américas</option>
                         <option value="Asia">Asia</option>   
                         <option value="Europe">Europe</option>   
                         <option value="Oceania">Oceanía</option>   
                         <option value="Africa">África</option>
                         <option value="Polar">Polar</option>
-                        <option value="none">Borrar</option> 
                     </optgroup>
                 </select>
             </div>

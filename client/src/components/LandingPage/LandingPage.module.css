@@ -22,7 +22,7 @@
 }
 .link:hover{
     background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(38, 30, 196, 0.774) 0%, rgba(33, 33, 201, 0.897) 35%, rgba(0, 213, 255, 0.316) 100%);
+    background: linear-gradient(90deg, rgba(55, 45, 233, 0.774) 0%, rgba(48, 48, 241, 0.897) 35%, rgba(0, 213, 255, 0.316) 100%);
 }
 .titulo{
     position: absolute;

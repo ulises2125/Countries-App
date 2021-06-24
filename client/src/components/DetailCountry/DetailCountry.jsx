@@ -22,7 +22,7 @@ const DetailCountry = () => {
             <div className={style.container}>
                 <h5>id: {countriesDetail.id}</h5>
                 <h1>Name: {countriesDetail.name}</h1>
-                <img className={style.image} src = {countriesDetail.image} alt="no image"/>
+                <img src = {countriesDetail.image} alt="no image"/>
                 <h3>Continent: {countriesDetail.continent}</h3>
                 <h3>Subregion: {countriesDetail.subregion}</h3>
                 <h3>Capital: {countriesDetail.capital}</h3>

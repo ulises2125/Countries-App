@@ -20,7 +20,7 @@ const Search = () => {
         <div>
             <div className={style.search}>
                 <input className={style.inputText} required autoComplete="off" type="text" placeholder="Search by name" name="input" onChange={(e)=>inputHandler(e)}/>
-                <button className={style.inputBtn} onClick={()=> onClickHandler()}>Buscar</button>
+                <button className={style.inputBtn} onClick={onClickHandler}>Buscar</button>
             </div>
         </div>
     )

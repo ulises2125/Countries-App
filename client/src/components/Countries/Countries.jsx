@@ -3,9 +3,8 @@ import Country from './Country';
 import { useSelector } from 'react-redux';
 import style from './countries.module.css';
 
-const Countries = () => {
+const Countries = ({countries}) => {
     const [currentPage, setCurrentPage] = useState(0);
-    const countries = useSelector(state => state.countries)
 
     let nextPage = () => {
         if(countries.length <= currentPage + 10){
@@ -25,6 +24,7 @@ const Countries = () => {
 
     if(currentPage > countries.length){
         pageOne()}
+        
     return (
         <div className={style.fondo}>
             <div className={style.countries}>
@@ -38,8 +38,8 @@ const Countries = () => {
                 ))}
             </div>
             <div className={style.btn}>
-                <button className={style.btn1} onClick={prevPage}>&#11164;</button>
-                <button className={style.btn2} onClick={nextPage}>&#11166;</button>
+                {currentPage !== 0 ? <button className={style.btn1} onClick={prevPage}>&#11164;</button> : <div></div> }
+                {currentPage !== 240 ? <button className={style.btn2} onClick={nextPage}>&#11166;</button> : <div></div> }
             </div>
         </div>
     )

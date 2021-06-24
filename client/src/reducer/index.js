@@ -3,7 +3,8 @@ import { GET_COUNTRIES, GET_COUNTRY_DETAIL, GET_COUNTRY, ASC, DES, PASC, PDES, F
 const initialState = {
     countries: [],
     countriesDetail: {},
-    activities: []
+    activities: [],
+    countriesFilter:[]
 };
 
 export function reducer(state = initialState, action){
@@ -46,7 +47,7 @@ export function reducer(state = initialState, action){
         case FILTER_BY_CONTINENT:
             return {
                 ...state,
-                countries: state.countries.filter((c) => c.continent === action.payload)
+                countriesFilter: state.countries.filter((c) => c.continent === action.payload)
             }
         case FILTER_BY_ACTIVITY:
             return {
