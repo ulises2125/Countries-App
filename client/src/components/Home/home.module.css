@@ -5,3 +5,9 @@
     min-height: 100vh;
     background-size: cover;
 }
+.reset{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+}

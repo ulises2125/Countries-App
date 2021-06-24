@@ -13,21 +13,21 @@ const DetailCountry = () => {
     const { id } = useParams()
     useEffect(() => {
         dispatch(getCountriesDetail(id))
-    },[])
+    },[dispatch])
     return (
         <div className={style.windowContainer}>
             <div className={style.linkcontainer}>
                 <Link className={style.link} to='/countries'>Home</Link>
             </div>
             <div className={style.container}>
-                <h5>id = {countriesDetail.id}</h5>
-                <h1>name = {countriesDetail.name}</h1>
-                <img src = {countriesDetail.image} alt="no image"/>
-                <h3>continent = {countriesDetail.continent}</h3>
-                <h3>subregion = {countriesDetail.subregion}</h3>
-                <h3>capital = {countriesDetail.capital}</h3>
-                <h4>area = {countriesDetail.area} Km2</h4>
-                <h4>population = {countriesDetail.population}</h4>
+                <h5>id: {countriesDetail.id}</h5>
+                <h1>Name: {countriesDetail.name}</h1>
+                <img className={style.image} src = {countriesDetail.image} alt="no image"/>
+                <h3>Continent: {countriesDetail.continent}</h3>
+                <h3>Subregion: {countriesDetail.subregion}</h3>
+                <h3>Capital: {countriesDetail.capital}</h3>
+                <h4>Area: {countriesDetail.area} Km2</h4>
+                <h4>Population: {countriesDetail.population}</h4>
                 <hr/>
                 <Activity countryName={countriesDetail.name} activities={countriesDetail.activities}/>
             </div>

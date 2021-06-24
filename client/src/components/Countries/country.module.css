@@ -10,7 +10,7 @@
       
 } 
 .countryContainer:hover{
-    background-color: #FFED99;
+    background-color: rgba(255, 255, 255, 0.3);
     
 }
 .imgContainer img{
@@ -24,10 +24,19 @@
 }
 .link{
     text-decoration: none;
-    color: black;
+    color: white;
     display: contents;
 }
 .link:hover{
-    color: white;
+    color: black;
 }
-    
+.name{
+    text-align: center;
+}
+.continent{
+    text-align: center;
+} 
+/* .img{
+    width: 150px;
+    height: 50px;
+} */

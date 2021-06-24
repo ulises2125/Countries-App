@@ -18,7 +18,7 @@ const Home = () => {
     }
     return (
         <div className={style.fondo}>
-            <Link to='/countries' onClick={() => resetHandler()}>home
+            <Link className={style.reset} to='/countries' onClick={() => resetHandler()}>Home
             </Link>
             <Nav/>
             <Search/>

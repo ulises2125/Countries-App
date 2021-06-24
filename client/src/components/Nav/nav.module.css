@@ -17,7 +17,6 @@
     border-radius: 5%;
 }
 .link:hover{
-    background-color: #fff;
     border: 1px #3383FF solid;
     color: #3383FF;
 }
@@ -28,6 +27,7 @@
 .filtersContainer{
     display: flex;
     margin-left: 3em;
+    border-radius: 5px;
 }
 
 .inputActivityContainer{
@@ -43,7 +43,21 @@
     border-radius: 25px;
     padding: 3%;
 } 
-.button{
-    display:flex;
-    margin-left:3em;
+ .button{
+    margin-top: 17px;
+} 
+.btna:hover{
+    border: 1px #3383FF solid;
+    color: #3383FF;
 }
+.btna{
+    text-decoration: none;
+    color: white;
+    margin-left: 5.5em;
+    width: 80px;
+    text-align: center;
+    border: 1px #eaedf1 solid;
+    border-radius: 5px;
+    padding: 15px;
+}
+

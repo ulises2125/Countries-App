@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Country from './Country';
-import { getAllCountries } from '../../actions/actions';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import style from './countries.module.css';
 
 const Countries = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const countries = useSelector(state => state.countries)
-    const dispatch = useDispatch();
 
     let nextPage = () => {
         if(countries.length <= currentPage + 10){
@@ -25,19 +23,10 @@ const Countries = () => {
         setCurrentPage(0)
     }
 
-    /* useEffect(() => {
-        dispatch(getAllCountries())
-    },[]); */
-
     if(currentPage > countries.length){
         pageOne()}
     return (
         <div className={style.fondo}>
-            <div className={style.btn}>
-                <button onClick={prevPage}>Previous</button>
-                {/* <button>{currentPage}</button> */}
-                <button onClick={nextPage}>Next</button>
-            </div>
             <div className={style.countries}>
                 {filterC && filterC.map((e) => (
                     <Country
@@ -47,6 +36,10 @@ const Countries = () => {
                         continent={e.continent}
                     />
                 ))}
+            </div>
+            <div className={style.btn}>
+                <button className={style.btn1} onClick={prevPage}>&#11164;</button>
+                <button className={style.btn2} onClick={nextPage}>&#11166;</button>
             </div>
         </div>
     )

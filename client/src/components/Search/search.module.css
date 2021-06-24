@@ -1,23 +1,30 @@
 .inputBtn{
-    background-color: #3383FF;
+    background-color: #294d83;
     border-radius: 10%;
     padding: 5px;
     color: white;
     border: white 1px solid;
     margin-left: 7px;
+    height: 30px;
+    margin-top: 20px;
 }
 
 .inputBtn:hover{
-    background-color: white;
-    color: #3383FF;
+    background-color: rgba(255, 255, 255, 0.788);
+    color: #3385ffc7;
     border: #3383FF 1px solid;
 }
 
 .inputText{
     border-radius: 50px;
-    margin: 10px;
+    margin: 15px;
     padding: 1%;
     outline: none;
     background-color: #eee;
     border: 0;
+    width: 350px;
+}
+.search{
+    display: flex;
+    justify-content: center;
 }

@@ -1,10 +1,9 @@
 import React from "react"
-import style from "./activity.module.css"
 
 const Activity = ({activities, countryName}) =>{
     if(activities && activities.length){
     return(
-        <div style={style.activityContainer}>
+        <div >
             <h2>Activities to do in {countryName}</h2>
             <table>
                 <thead>
@@ -17,7 +16,7 @@ const Activity = ({activities, countryName}) =>{
                 </thead>
                 <tbody>
                 {activities && activities.map((a)=>
-                <tr key={a.id} className={style.activities}>
+                <tr key={a.id} >
                     <td>{a.name}</td>
                     <td>{a.duration}</td>
                     <td>{a.season}</td>

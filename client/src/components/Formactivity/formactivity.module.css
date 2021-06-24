@@ -16,6 +16,7 @@
     background: linear-gradient(black,black);
     -webkit-background-clip: text;
     color: transparent;
+    margin-top: -30px;
 }
 
 .inputName{
@@ -71,7 +72,7 @@
 
 .confirmacion{
     position: absolute;
-    background: rgb(15, 216, 243);
+    background-color: rgba(0, 0, 0, 0.5);
     text-decoration: underline;
     font-family: 'Dela Gothic One', cursive;
     border-radius: 1em;
@@ -88,11 +89,14 @@
     align-items: center;
     margin-left: 50px;
     width: 90px;
-    color:#966303;
+    color:#fcc256;
     border-radius: 0.5em;
     border:2px solid white;
     height: 50px;
     transition: 0.3s ;
-    z-index: 100;
     text-decoration: none;
+    padding-left: 12px;
+}
+.volver:hover{
+    background-color: rgba(204, 204, 204, 0.3);
 }

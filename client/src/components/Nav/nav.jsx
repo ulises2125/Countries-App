@@ -8,30 +8,18 @@ import style from './nav.module.css';
 export function Nav(){
     const countries = useSelector(state => state.countries)
     const [activity, setActivity] = useState("")
-    /* const [continent, setContinent] = useState("") */
     const dispatch = useDispatch()
 
     const handleChange = (event) =>{
         dispatch(filterByContinent(event.target.value))
+        
     }
-
-    /* useEffect(()=>{
-         if(continent){
-            getAllCountries()
-            if(continent !== "all"){
-            setTimeout(() => {
-                dispatch(filterByContinent(continent))
-            }, 50) 
-            }
-        }}, [continent]) */
 
     const handleChangeOrder = (event) =>{
         if(event.target.value === ASC ){
-            
             dispatch(sortCountryASC(countries))
         }
         if(event.target.value === DES){
-            
             dispatch(sortCountryDES(countries))
         }
     }
@@ -44,13 +32,8 @@ export function Nav(){
             dispatch(sortCountryCANT_PD())
         }
     }
-    useEffect(() => {
-        console.log(activity)
-    },[activity])
 
     const inputActivityHandler = (e) =>{
-        e.preventDefault()
-        console.log(e.target.value)
         setActivity(e.target.value)
     }
 
@@ -65,14 +48,14 @@ export function Nav(){
             <div className = {style.filter}>
                 <select onChange={handleChange}>
                     <optgroup label="Select a continent">
-                        <option value="none">Select one Continent</option>
+                        <option >Select one Continent</option>
                         <option value="Americas">Américas</option>
                         <option value="Asia">Asia</option>   
                         <option value="Europe">Europe</option>   
                         <option value="Oceania">Oceanía</option>   
                         <option value="Africa">África</option>
-                        <option value="Polar">Polar</option> 
-                        <option value="SinContinente">No Continent</option>
+                        <option value="Polar">Polar</option>
+                        <option value="none">Borrar</option> 
                     </optgroup>
                 </select>
             </div>
@@ -84,7 +67,6 @@ export function Nav(){
                         <option value={DES}>Descendente</option>
                     </optgroup>
                 </select>
-
                 <select onChange={handleChangePopulation}>
                     <optgroup label="Select an a Order">
                         <option>Order by Habitantes</option>
@@ -99,7 +81,7 @@ export function Nav(){
                     </form>
                 </div>
                 <div className={style.button}>
-                    <Link to="/activities"> Add Activity </Link>
+                    <Link className={style.btna} to="/activities"> Add Activity </Link>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { connectAdvanced, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getActivity, getAllCountries, postActivity } from '../../actions/actions';
+import { postActivity } from '../../actions/actions';
 import style from './formactivity.module.css';
 
 const FromActivity = () => {
@@ -9,14 +9,23 @@ const FromActivity = () => {
     const dispatch = useDispatch()
 
     const [formvalidate, setFormValidate] = useState(false)
-
+    const [error, setError] = useState({})
     const [activity, setActivity] = useState({
         name: "",
         difficulty: "",
         duration: "",
         season: "",
         country: []
-    })  
+    })
+    
+    useEffect(()=>{
+        if(!activity.name){
+            setError({ ...error, name: "you need to specify the name of the activity"})
+        }
+        else if(!activity.duration.length ){
+            setError({...error, duration: "please specify the duration"})
+        }
+    }, [activity])
 
     const handleActivity = (e) => {
         setFormValidate(false)
@@ -25,9 +34,8 @@ const FromActivity = () => {
             setActivity({
                 ...activity,
                 [e.target.name]: e.target.value
-            }
-            )
-        }
+            }) 
+        } 
         else if (e.target.name === "difficulty") {
             setActivity({
                 ...activity,
@@ -46,13 +54,13 @@ const FromActivity = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         setFormValidate(true)
-        console.log(activity, "Estado")
         dispatch(postActivity(activity))
+        setActivity("")
     }
     return (
         <div className={style.totalform}>
             <div className={style.similNavbar}>
-                <div >
+                <div>
                     <Link className={style.volver} to='/countries'> GO HOME </Link>
                 </div>
                 <div className={style.titulo}>Create a new activity</div>
@@ -61,10 +69,10 @@ const FromActivity = () => {
             <form onSubmit={handleSubmit}>
                 <div className={style.aMano}>
                     <div className={style.inputName}>
-                        <input className={style.dur} placeholder="Name" name="name" onChange={handleActivity} value={activity.name}></input>
+                        <input required autoComplete="off" className={style.dur} placeholder="Name" name="name" onChange={handleActivity} value={activity.name}></input>
                     </div>
                     <div className={style.inputDuration}>
-                        <input className={style.dur} placeholder="Duration(in minutes)" name="duration" onChange={handleActivity} value={activity.duration}></input>
+                        <input required autoComplete="off" type="number" className={style.dur} placeholder="Duration(in minutes)" name="duration" onChange={handleActivity} value={activity.duration}></input>
                     </div>
                     <div className={style.selectDifficulty}>
                         <select className={style.difficulty}name="difficulty" onChange={handleActivity}>
@@ -88,7 +96,7 @@ const FromActivity = () => {
                 </div>
 
                 <div>
-                    <select required className={style.multiSelect} onChange={handleActivity} name="country" id="countries" multiple>
+                    <select className={style.multiSelect} onChange={handleActivity} name="country" id="countries" multiple>
                         {
                             countries?.map(country => {
                                 return (
@@ -100,10 +108,10 @@ const FromActivity = () => {
                     </select>
                 </div>
                 <div >
-                    {<input className={style.butonAct} type="submit" />}
+                    <input className={style.butonAct} type="submit" />
                 </div>
                 {
-                    formvalidate ? <div className={style.confirmacion}>The activity was created successfully</div> : null
+                    formvalidate ? <div className={style.confirmacion}>created The activity was successfully</div> : null
                 }
             </form>
         </div>
