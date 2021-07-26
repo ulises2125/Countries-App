@@ -7,7 +7,7 @@ const Country = ({image, name, continent, id}) =>{
         <div className={style.countryContainer}>
             <h3 className={style.name}>{name}</h3>   
             <div className={style.imgContainer}>
-                <img className={style.img} src={image} alt="no image" />
+                <img className={style.img} src={image} alt="no image" style={{width:180}}/>
             </div>
             <h3 className={style.continent}>{continent}</h3>
         </div></Link>

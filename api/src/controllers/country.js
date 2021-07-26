@@ -31,14 +31,15 @@ const { Country, Activity } = require('../db')
             population: element.population  
             }})
         });
-        return res.send(filterApi);
+        const getApi = await Country.findAll({include: {model: Activity}})
+        return res.send(getApi)
     }
     else {
         const countryName = await Country.findAll({
             where: { 
                 name: {
                     [Op.iLike]: `%${name}%` } 
-            }
+            }, include: {model: Activity}
         })
         return res.send(countryName);
     } 

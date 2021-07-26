@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { filterByActivity, filterByContinent, sortCountryASC, sortCountryCANT_PA, sortCountryCANT_PD, sortCountryDES } from '../../actions/actions';
 import { ASC, DES, PASC, PDES } from '../../actionsNames';

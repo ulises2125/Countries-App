@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Country from './Country';
-import { useSelector } from 'react-redux';
 import style from './countries.module.css';
 
 const Countries = ({countries}) => {
